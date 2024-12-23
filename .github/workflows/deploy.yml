@@ -32,5 +32,3 @@ jobs:
           project: "todor"
           entrypoint: "main.ts"
           root: "."
-          
-          

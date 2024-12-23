@@ -1,19 +1,14 @@
 import { Handlers, PageProps } from "$fresh/server.ts"
+import licenseInfo from "../../libs/data/license-info.json" with {
+  type: "json",
+}
 
 export interface LicenseRouteProps {
-  licenseInfo: string
+  licenseInfo: unknown
 }
 
 export const handler: Handlers<LicenseRouteProps> = {
-  async GET(_, ctx) {
-    const url = `${new URL(ctx.url).origin}/api/licenses`
-    console.log("🚀 ~ GET ~ url:", url)
-    const response = await fetch(url)
-    const licenseInfo = await response.text()
-    console.log("🚀 ~ GET ~ licenseInfo:", licenseInfo)
-
-    return ctx.render({ licenseInfo: JSON.parse(licenseInfo) })
-  },
+  GET: (_, ctx) => ctx.render({ licenseInfo }),
 }
 
 export default function Licenses(

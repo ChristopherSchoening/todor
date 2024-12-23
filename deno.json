@@ -3,7 +3,7 @@
   "exclude": ["**/_fresh/*"],
   "tasks": {
     "scripts:debug:get-licenses": "deno run -A ./scripts/get-licenses.ts",
-    "scripts:get-licenses": "deno run -A ./scripts/get-licenses.ts > ./routes/api/licenses/license-info.json && deno fmt",
+    "scripts:get-licenses": "deno run -A ./scripts/get-licenses.ts > ./libs/data/license-info.json && deno fmt",
     "check": "deno fmt --check && deno lint && deno check **/*.ts && deno check **/*.tsx",
     "cli": "echo \"import '\\$fresh/src/dev/cli.ts'\" | deno run --unstable -A -",
     "manifest": "deno task cli manifest $(pwd)",
