@@ -1,0 +1,6 @@
+{
+  "version": "0.1.0",
+  "tasks": {
+    "start": "deno run --watch -A ./src/main.ts"
+  }
+}
