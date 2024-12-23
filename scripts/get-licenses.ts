@@ -1,4 +1,7 @@
 import _ from "lodash"
+// todo fix type issue
+// deno-lint-ignore ban-ts-comment
+// @ts-ignore
 const { uniqBy } = _
 
 const licenseCache = new Map<string, string>()
