@@ -6,17 +6,10 @@ export interface LicenseRouteProps {
 
 export const handler: Handlers<LicenseRouteProps> = {
   async GET(_, ctx) {
-    const url = `${Deno.env.get("API_URL")}/licenses`
+    const url = `${new URL(ctx.url).origin}/api/licenses`
+    console.log("🚀 ~ GET ~ url:", url)
     const response = await fetch(url)
-    if (!response.ok) {
-      return ctx.render({
-        licenseInfo: `error ${response.status}, ${
-          JSON.stringify(response)
-        }, ${url}`,
-      })
-    }
     const licenseInfo = await response.text()
-    console.log("🚀 ~ GET ~ licenseInfo:", licenseInfo)
 
     return ctx.render({ licenseInfo: JSON.parse(licenseInfo) })
   },
