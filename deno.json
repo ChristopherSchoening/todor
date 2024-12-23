@@ -3,7 +3,8 @@
   "workspace": ["./apps/frontend-web", "./services/legal-service"],
   "tasks": {
     "frontend-web:start": "cd ./apps/frontend-web && deno task start",
-    "legal:start": "cd ./services/legal-service && deno task start"
+    "legal:start": "cd ./services/legal-service && deno task start",
+    "scripts:get-licenses": "deno run -A ./scripts/get-licenses.ts > ./services/legal-service/src/license-info.json && deno fmt"
   },
   "lint": {
     "rules": {
@@ -22,7 +23,8 @@
     "@twind/preset-tailwind": "https://esm.sh/@twind/preset-tailwind@1.1.4/",
     "@twind/preset-autoprefix": "https://esm.sh/@twind/preset-autoprefix@1.0.7/",
     "$fresh/": "https://deno.land/x/fresh@1.7.3/",
-    "$std/": "https://deno.land/std@0.216.0/"
+    "$std/": "https://deno.land/std@0.216.0/",
+    "lodash": "https://esm.sh/lodash@4.17.21"
   },
   "compilerOptions": {
     "jsx": "react-jsx",
