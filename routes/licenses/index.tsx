@@ -10,6 +10,7 @@ export const handler: Handlers<LicenseRouteProps> = {
     console.log("🚀 ~ GET ~ url:", url)
     const response = await fetch(url)
     const licenseInfo = await response.text()
+    console.log("🚀 ~ GET ~ licenseInfo:", licenseInfo)
 
     return ctx.render({ licenseInfo: JSON.parse(licenseInfo) })
   },
