@@ -8,7 +8,7 @@ const router = new Router()
 router.get("/license-info", (context) => {
 	context.response.headers.set("Content-Type", "application/json")
 	context.response.headers.set("Access-Control-Allow-Origin", "*")
-	context.response.body = JSON.stringify(licenseInfo)
+	context.response.body = licenseInfo
 })
 
 // todo generate openapi spec and visualize it
