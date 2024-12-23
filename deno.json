@@ -1,14 +1,20 @@
 {
   "lock": false,
-  "workspace": ["./apps/frontend-web", "./services/legal-service"],
+  "exclude": ["**/_fresh/*"],
   "tasks": {
-    "frontend-web:start": "cd ./apps/frontend-web && deno task start",
-    "legal:start": "cd ./services/legal-service && deno task start",
-    "scripts:get-licenses": "deno run -A ./scripts/get-licenses.ts > ./services/legal-service/src/license-info.json && deno fmt"
+    "scripts:debug:get-licenses": "deno run -A ./scripts/get-licenses.ts",
+    "scripts:get-licenses": "deno run -A ./scripts/get-licenses.ts > ./routes/api/licenses/license-info.json && deno fmt",
+    "check": "deno fmt --check && deno lint && deno check **/*.ts && deno check **/*.tsx",
+    "cli": "echo \"import '\\$fresh/src/dev/cli.ts'\" | deno run --unstable -A -",
+    "manifest": "deno task cli manifest $(pwd)",
+    "start": "deno run -A --watch=static/,routes/ dev.ts",
+    "build": "deno run -A dev.ts build",
+    "preview": "deno run -A main.ts",
+    "update": "deno run -A -r https://fresh.deno.dev/update ."
   },
   "lint": {
     "rules": {
-      "tags": ["recommended"]
+      "tags": ["fresh", "recommended"]
     }
   },
   "fmt": {

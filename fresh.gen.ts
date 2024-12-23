@@ -4,16 +4,19 @@
 
 import * as $_404 from "./routes/_404.tsx"
 import * as $_app from "./routes/_app.tsx"
-import * as $licenses from "./routes/licenses/index.tsx"
+import * as $api_licenses_index from "./routes/api/licenses/index.ts"
 import * as $index from "./routes/index.tsx"
+import * as $licenses_index from "./routes/licenses/index.tsx"
+
 import type { Manifest } from "$fresh/server.ts"
 
 const manifest = {
   routes: {
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,
-    "./routes/licenses/index.tsx": $licenses,
+    "./routes/api/licenses/index.ts": $api_licenses_index,
     "./routes/index.tsx": $index,
+    "./routes/licenses/index.tsx": $licenses_index,
   },
   islands: {},
   baseUrl: import.meta.url,

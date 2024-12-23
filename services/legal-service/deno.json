@@ -1,9 +1,0 @@
-{
-  "version": "0.1.0",
-  "tasks": {
-    "start": "deno run --watch -A ./src/main.ts"
-  },
-  "imports": {
-    "oak": "https://deno.land/x/oak@v17.1.3/mod.ts"
-  }
-}
